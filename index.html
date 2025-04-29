@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MenuBro - Lightweight Menubar Browser</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <meta name="theme-color" content="#06d6a0">
+    <link rel="manifest" href="manifest.json">
+
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/main.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="images/logo.png" alt="MenuBro Logo">
+                <h1>MenuBro</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="#download" class="download-btn">Download</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Your Lightweight Menubar Browser</h1>
+                <p>Browse the web directly from your macOS menu bar. Fast, efficient, and always accessible.</p>
+                <a href="#download" class="cta-button">Download for macOS</a>
+            </div>
+            <div class="hero-image">
+                <div class="slideshow-container">
+                    <div class="slide fade active" style="display: block;">
+                        <img src="images/hero-image.png" alt="MenuBro Browser Screenshot 1">
+                    </div>
+                    <div class="slide fade">
+                        <img src="images/hero-image-2.png" alt="MenuBro Browser Screenshot 2">
+                    </div>
+
+                    <!-- 导航点 -->
+                    <div class="dots-container">
+                        <span class="dot active" onclick="currentSlide(1)"></span>
+                        <span class="dot" onclick="currentSlide(2)"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Features</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📑</div>
+                    <h3>Multi-Tab Browsing</h3>
+                    <p>Open multiple websites simultaneously. Supports tab drag-and-drop sorting and pinning important tabs.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🖥️</div>
+                    <h3>Multi-Screen Design</h3>
+                    <p>Specially designed for multi-screen setups. Specify which screen windows appear on for optimal workflow.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Device Emulation</h3>
+                    <p>Switch between different device types with appropriate user agents for desktop and mobile browsing.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⌨️</div>
+                    <h3>Global Shortcuts</h3>
+                    <p>Access MenuBro quickly with customizable keyboard shortcuts for efficient browsing.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Responsive Interface</h3>
+                    <p>Clean, beautiful user interface that adapts to different content and supports light/dark modes.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Privacy Protection</h3>
+                    <p>Enable additional privacy features to protect your browsing data when you step away.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About MenuBro</h2>
+            <p>MenuBro is a lightweight browser application for macOS that provides a convenient way to browse the web from the menu bar. Designed for efficiency and ease of use, MenuBro stays out of your way until you need it.</p>
+            <p>Look for the MenuBro icon in your menu bar and click to launch. Set your preferred homepage, customize shortcuts, and start browsing right away!</p>
+        </div>
+    </section>
+
+    <section id="download" class="download">
+        <div class="container">
+            <h2>Download MenuBro</h2>
+            <p>Get started with MenuBro today and enhance your browsing experience.</p>
+            <a href="https://apps.apple.com/us/app/menubro/id6745024185" class="cta-button">Download for macOS</a>
+            <p class="version-info">Current Version: 1.0.0 | Release Date: May 1, 2025</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/logo.png" alt="MenuBro Logo">
+                    <p>MenuBro</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Links</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="#download">Download</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <span>Email: <a href="mailto:SelfStudioFun@gmail.com">SelfStudioFun@gmail.com</a></span>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2025 SelfStudio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
