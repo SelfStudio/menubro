@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://menubro.app/sitemap.xml
+Sitemap: https://selfstudio.fun/menubro/sitemap.xml
