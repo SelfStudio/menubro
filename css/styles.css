@@ -237,7 +237,18 @@ nav a:hover {
     transform: translateY(-2px);
 }
 
-/* App Store badge styles removed - using regular buttons instead */
+/* App Store badge styles */
+.app-store-badge {
+    display: inline-block;
+    margin: 10px 0;
+    transition: transform var(--transition-speed) ease;
+    max-width: 180px;
+    height: auto;
+}
+
+.app-store-badge:hover {
+    transform: translateY(-2px);
+}
 
 /* Features Section */
 .features {
