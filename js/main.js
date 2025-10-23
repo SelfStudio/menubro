@@ -47,7 +47,38 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Listen for changes
   prefersDarkMode.addEventListener("change", updateTheme)
+  
+  // 获取App Store版本信息
+  fetchAppStoreVersion()
 })
+
+// 获取App Store版本信息
+async function fetchAppStoreVersion() {
+  try {
+    const response = await fetch('https://itunes.apple.com/lookup?id=6745024185')
+    const data = await response.json()
+    
+    if (data.results && data.results.length > 0) {
+      const appInfo = data.results[0]
+      const versionInfoElement = document.querySelector('.version-info')
+      
+      if (versionInfoElement) {
+        // 格式化日期
+        const releaseDate = new Date(appInfo.currentVersionReleaseDate || appInfo.releaseDate)
+        const formattedDate = releaseDate.toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        })
+        
+        versionInfoElement.innerHTML = `Current Version: ${appInfo.version} | Release Date: ${formattedDate}`
+      }
+    }
+  } catch (error) {
+    console.error('Failed to fetch App Store version info:', error)
+    // 发生错误时保持原有的硬编码版本信息
+  }
+}
 
 // 下一张/上一张幻灯片
 function plusSlides(n) {
