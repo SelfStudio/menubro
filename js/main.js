@@ -52,32 +52,51 @@ document.addEventListener("DOMContentLoaded", function () {
   fetchAppStoreVersion()
 })
 
-// 获取App Store版本信息
-async function fetchAppStoreVersion() {
-  try {
-    const response = await fetch('https://itunes.apple.com/lookup?id=6745024185')
-    const data = await response.json()
-    
-    if (data.results && data.results.length > 0) {
-      const appInfo = data.results[0]
-      const versionInfoElement = document.querySelector('.version-info')
-      
-      if (versionInfoElement) {
-        // 格式化日期
-        const releaseDate = new Date(appInfo.currentVersionReleaseDate || appInfo.releaseDate)
-        const formattedDate = releaseDate.toLocaleDateString('en-US', {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric'
-        })
+// 获取App Store版本信息 - 使用JSONP方式避免CORS问题
+function fetchAppStoreVersion() {
+  // 创建script标签
+  const script = document.createElement('script')
+  const callbackName = 'jsonp_callback_' + Math.round(100000 * Math.random())
+  
+  // 设置全局回调函数
+  window[callbackName] = function(data) {
+    try {
+      if (data.results && data.results.length > 0) {
+        const appInfo = data.results[0]
+        const versionInfoElement = document.querySelector('.version-info')
         
-        versionInfoElement.innerHTML = `Current Version: ${appInfo.version} | Release Date: ${formattedDate}`
+        if (versionInfoElement) {
+          // 格式化日期
+          const releaseDate = new Date(appInfo.currentVersionReleaseDate || appInfo.releaseDate)
+          const formattedDate = releaseDate.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          })
+          
+          versionInfoElement.innerHTML = `Current Version: ${appInfo.version} | Release Date: ${formattedDate}`
+        }
       }
+    } catch (error) {
+      console.error('Failed to process App Store version info:', error)
+    } finally {
+      // 清理
+      document.head.removeChild(script)
+      delete window[callbackName]
     }
-  } catch (error) {
-    console.error('Failed to fetch App Store version info:', error)
-    // 发生错误时保持原有的硬编码版本信息
   }
+  
+  // 设置script标签的src属性
+  script.src = `https://itunes.apple.com/lookup?id=6745024185&callback=${callbackName}`
+  script.onerror = function() {
+    console.error('Failed to fetch App Store version info')
+    // 清理
+    document.head.removeChild(script)
+    delete window[callbackName]
+  }
+  
+  // 添加script标签到页面
+  document.head.appendChild(script)
 }
 
 // 下一张/上一张幻灯片
